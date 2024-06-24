@@ -10,7 +10,6 @@ public class ExpressionBackendTask : IBackendTask
     {
         _recordServices = recordServices;
     }
-
     public async Task RunAsync()
     {
         var fields = new[] { nameof(Product.Id), nameof(Product.Name) };
@@ -27,8 +26,8 @@ public class ExpressionBackendTask : IBackendTask
 
     protected virtual void WriteRecord<T>(T record, params string[] fields) where T : IPrimaryEntity
     {
-        var fieldMessages = fields.Select(field => $"{field} = record[field]");
         _recordServices.ProcessRecord($"Record {record.Id}:");
+        var fieldMessages = fields.Select(field => $"{field} = record[field]");
         _recordServices.ProcessRecord(string.Join("; ", fieldMessages));
     }
 
