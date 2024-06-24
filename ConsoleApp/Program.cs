@@ -7,6 +7,6 @@ DependencyRegistrator.RegisterDependencyModules(serviceCollection);
 
 var serviceProvider = serviceCollection.BuildServiceProvider();
 
-var app = serviceProvider.GetRequiredService<IApp>();
+var app = serviceProvider.GetRequiredService<IAppService>();
 await app.RunAsync();
 

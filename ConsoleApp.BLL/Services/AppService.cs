@@ -4,12 +4,12 @@ using ReportApi.Common;
 
 namespace ConsoleApp.BLL.Services
 {
-    public class App : IApp
+    public class AppService : IAppService
     {
         private readonly IBackendTask _task1;
         private readonly IBackendTask _task2;
 
-        public App([FromKeyedServices(ServiceKeys.TB)] IBackendTask task1, [FromKeyedServices(ServiceKeys.EB)] IBackendTask task2)
+        public AppService([FromKeyedServices(ServiceKeys.TB)] IBackendTask task1, [FromKeyedServices(ServiceKeys.EB)] IBackendTask task2)
         {
             _task1 = task1;
             _task2 = task2;
