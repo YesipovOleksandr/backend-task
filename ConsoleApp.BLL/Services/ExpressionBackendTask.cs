@@ -1,6 +1,7 @@
+using ConsoleApp.Common.Abstract;
 using ConsoleApp.Models;
 
-namespace ConsoleApp.Tasks;
+namespace ConsoleApp.BLL.Services;
 
 public class ExpressionBackendTask : IBackendTask {
   
