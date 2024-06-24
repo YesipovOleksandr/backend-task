@@ -1,6 +1,7 @@
 ﻿using ConsoleApp.BLL.Services;
 using ConsoleApp.Common.Abstract;
 using Microsoft.Extensions.DependencyInjection;
+using ReportApi.Common;
 
 namespace ConsoleApp.Dependencies
 {
@@ -8,8 +9,8 @@ namespace ConsoleApp.Dependencies
     {
         public static void RegisterDependencyModules(IServiceCollection services)
         {
-            services.AddTransient<IBackendTask, ThreadBackendTask>();
-            services.AddTransient<IBackendTask, ExpressionBackendTask>();
+            services.AddKeyedTransient<IBackendTask, ThreadBackendTask>(ServiceKeys.TB);
+            services.AddKeyedTransient<IBackendTask, ExpressionBackendTask>(ServiceKeys.EB);
             services.AddTransient<IApp,App>();
         }
     }

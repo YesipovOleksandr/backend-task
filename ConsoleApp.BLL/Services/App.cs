@@ -1,4 +1,6 @@
 ﻿using ConsoleApp.Common.Abstract;
+using Microsoft.Extensions.DependencyInjection;
+using ReportApi.Common;
 
 namespace ConsoleApp.BLL.Services
 {
@@ -7,7 +9,7 @@ namespace ConsoleApp.BLL.Services
         private readonly IBackendTask _task1;
         private readonly IBackendTask _task2;
 
-        public App(IBackendTask task1, IBackendTask task2)
+        public App([FromKeyedServices(ServiceKeys.TB)] IBackendTask task1, [FromKeyedServices(ServiceKeys.EB)] IBackendTask task2)
         {
             _task1 = task1;
             _task2 = task2;
