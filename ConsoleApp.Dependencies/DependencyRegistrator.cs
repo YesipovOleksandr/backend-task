@@ -11,6 +11,8 @@ namespace ConsoleApp.Dependencies
         {
             services.AddKeyedTransient<IBackendTask, ThreadBackendTask>(ServiceKeys.TB);
             services.AddKeyedTransient<IBackendTask, ExpressionBackendTask>(ServiceKeys.EB);
+            services.AddTransient<IRecordService, ConsoleRecordService>();
+            services.AddTransient<IRecordService, LoggerRecordService>();
             services.AddTransient<IApp,App>();
         }
     }
